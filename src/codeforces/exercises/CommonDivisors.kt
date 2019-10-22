@@ -1,0 +1,31 @@
+package codeforces.exercises
+
+import java.io.BufferedReader
+import java.io.InputStreamReader
+import kotlin.math.sqrt
+
+tailrec fun gcd(a: Long, b: Long): Long =
+    if (b == 0.toLong()) a
+    else gcd(b, a % b)
+
+
+
+fun main(args: Array<String>) {
+    val br = BufferedReader(InputStreamReader(System.`in`))
+    val n = br.readLine().toInt()
+    val nums = br.readLine().split(" ").map { it.toLong() }
+    val g = nums.fold(0.toLong()) { x, y -> gcd(x, y) }
+    var i = 1.toLong()
+    var count = 0
+
+    while (i <= sqrt(g.toDouble())) {
+        if (g % i == 0.toLong()) {
+            if (g/i == i)
+                count ++
+            else
+                count += 2
+        }
+        i++
+    }
+    println(count)
+}
