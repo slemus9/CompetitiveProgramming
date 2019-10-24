@@ -1,7 +1,7 @@
 package algorithms.graph.graphTraversal
 
-object DepthFirstSearch{
-    val G: HashMap<Int, Array<Int>> = HashMap()
+class DepthFirstSearch(val G: HashMap<Int, Array<Int>>){
+
     val visited = Array<Boolean>(G.size){_ -> false}
     val color = Array<Int>(G.size){_ -> -1}
     val timeIn = Array(G.size){_ -> 0}
