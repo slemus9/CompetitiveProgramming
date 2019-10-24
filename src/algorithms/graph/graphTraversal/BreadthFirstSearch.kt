@@ -3,8 +3,7 @@ package algorithms.graph.graphTraversal
 import java.util.*
 import kotlin.collections.HashMap
 
-object BreadthFirstSearch{
-    val G: HashMap<Int, Array<Int>> = HashMap()
+class BreadthFirstSearch(val G: HashMap<Int, Array<Int>>){
     val q: Queue<Int> = LinkedList()
     val used = Array<Boolean>(G.size){_ -> false}
     val distances = Array<Int>(G.size){_ -> 0}
