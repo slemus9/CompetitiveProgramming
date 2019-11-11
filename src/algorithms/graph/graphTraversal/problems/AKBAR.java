@@ -3,10 +3,7 @@ package algorithms.graph.graphTraversal.problems;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 /**
  * https://www.spoj.com/problems/AKBAR/
@@ -18,6 +15,7 @@ public class AKBAR {
     private static Queue<Integer> q;
     private static boolean[] used;
     private static int[] guarded;
+    private static int[] distances;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -36,16 +34,10 @@ public class AKBAR {
 
             for (int j = 0; j < r; j++) {
                 String[] uv = br.readLine().split(" ");
-                int u = Integer.parseInt(nrm[0]);
-                int v = Integer.parseInt(nrm[1]);
-
-                if (G.containsKey(u)){
-                    G.get(u).add(v);
-                }else {
-                    ArrayList<Integer> adj = new ArrayList<>();
-                    adj.add(v);
-                    G.put(u, adj);
-                }
+                int u = Integer.parseInt(uv[0]);
+                int v = Integer.parseInt(uv[1]);
+                addToG(u, v);
+                addToG(v, u);
             }
 
             for (int j = 0; j < m; j++) {
@@ -55,25 +47,64 @@ public class AKBAR {
                 strenghts.put(k, s);
             }
 
+            guarded = new int[n + 1];
 
-            used = new boolean[G.size()];
-            guarded = new int[G.size()];
+            boolean optimum = true;
+
+            for(int s : strenghts.keySet()){
+                used = new boolean[n + 1];
+                distances = new int[n + 1];
+                optimum = bfs(s);
+                if (!optimum) break;
+            }
+
+            if (optimum) System.out.println("Yes");
+            else System.out.println("No");
 
         }
     }
 
-    private static void bfs(int s){
+    private static void addToG(int v, int u){
+        if (G.containsKey(u)){
+            G.get(u).add(v);
+        }else {
+            ArrayList<Integer> adj = new ArrayList<>();
+            adj.add(v);
+            G.put(u, adj);
+        }
+    }
+
+    private static boolean bfs(int s){
         q.add(s);
         used[s] = true;
-        while (!q.isEmpty()){
+        guarded[s]++;
+        int cities = strenghts.get(s);
+        boolean notRepeated = true;
+
+        while (!q.isEmpty() && notRepeated){
             int v = q.poll();
-            for(int u: G.get(v)){
-                if (!used[u]){
-                    used[u] = true;
-                    q.add(u);
+
+            if (guarded[v] > 1){
+                notRepeated = false;
+                break;
+            }
+
+            if (distances[v] < cities){
+                for(int u: G.get(v)){
+                    if (!used[u]){
+                        used[u] = true;
+                        guarded[u]++;
+                        q.add(u);
+                        distances[u] = distances[v] + 1;
+                    }
+                    if (guarded[u] > 1){
+                        notRepeated = false;
+                        break;
+                    }
                 }
             }
         }
-    }
 
+        return notRepeated;
+    }
 }
