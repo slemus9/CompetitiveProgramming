@@ -85,6 +85,5 @@ int main(){
     printf("%d\n", bfs(inix, iniy, endx, endy));
   }
 
-
   return 0;
 }
