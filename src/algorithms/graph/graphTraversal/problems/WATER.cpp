@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include <cstring>
 
 using namespace std;
 
@@ -13,8 +14,8 @@ struct point{
 
 int n, m, t;
 const int MAX_SIZE = 110;
-int G [MAX_SIZE][MAX_SIZE];
-bool puddles [MAX_SIZE][MAX_SIZE];
+vector<vector<int>> G;
+vector<vector<bool>> puddles;
 queue<point> q;
 
 bool isValid(int x, int y){
@@ -33,8 +34,12 @@ int main(){
     cin >> t;
     for (int i = 0; i < t; ++i) {
         cin >> n >> m;
+        G.resize(n);
+        puddles.resize(n);
 
         for (int j = 0; j < n; ++j) {
+            G.resize(m);
+            puddles.resize(m);
             for (int k = 0; k < m; ++k) {
                 cin >> G[i][j];
             }
