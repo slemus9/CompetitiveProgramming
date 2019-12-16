@@ -11,12 +11,12 @@ fun main(args: Array<String>) {
 
     for (i in 0 until t){
         val n = br.readLine().toInt()
-        var number = br.readLine().toLong()
+        var number = br.readLine()L
         var numberOfOnes = 0
 
         for (j in 0 until n){
             val digit = number % 10
-            if (digit == 1.toLong()){
+            if (digit == 1L){
                 numberOfOnes ++
             }
             number /= 10

@@ -25,7 +25,7 @@ fun isThereAWay(a: Long, b: Long): List<Long> {
 
 fun main(args: Array<String>) {
     val br = BufferedReader(InputStreamReader(System.`in`))
-    val ab = br.readLine().split(" ").map { it.toLong() }
+    val ab = br.readLine().split(" ").map { itL }
     val a = ab[0]
     val b = ab[1]
     val result = memo(::isThereAWay)(a, b)

@@ -5,7 +5,7 @@ import java.io.InputStreamReader
 import kotlin.math.sqrt
 
 tailrec fun gcd(a: Long, b: Long): Long =
-    if (b == 0.toLong()) a
+    if (b == 0L) a
     else gcd(b, a % b)
 
 
@@ -13,13 +13,13 @@ tailrec fun gcd(a: Long, b: Long): Long =
 fun main(args: Array<String>) {
     val br = BufferedReader(InputStreamReader(System.`in`))
     val n = br.readLine().toInt()
-    val nums = br.readLine().split(" ").map { it.toLong() }
-    val g = nums.fold(0.toLong()) { x, y -> gcd(x, y) }
-    var i = 1.toLong()
+    val nums = br.readLine().split(" ").map { itL }
+    val g = nums.fold(0L) { x, y -> gcd(x, y) }
+    var i = 1L
     var count = 0
 
     while (i <= sqrt(g.toDouble())) {
-        if (g % i == 0.toLong()) {
+        if (g % i == 0L) {
             if (g/i == i)
                 count ++
             else

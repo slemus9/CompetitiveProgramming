@@ -16,7 +16,7 @@ fun main(args: Array<String>) {
     if(k > 0){
 
         for (i in 1 .. m){
-            val uvl = br.readLine().split(" ").map { it.toLong() }
+            val uvl = br.readLine().split(" ").map { itL }
             val u = uvl[0].toInt()
             val v = uvl[1].toInt()
             val l = uvl[2]

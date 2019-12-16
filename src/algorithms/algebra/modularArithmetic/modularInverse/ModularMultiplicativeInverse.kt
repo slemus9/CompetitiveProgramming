@@ -2,7 +2,7 @@ package algorithms.algebra.modularArithmetic.modularInverse
 
 import algorithms.algebra.fundamentals.greatestCommonDivisor.gcdExtended
 
-const val zero = 0.toLong()
+const val zero = 0L
 
 
 /**
@@ -17,6 +17,6 @@ fun modInverse(a: Long, m: Long): Long {
     val gcd = gcdExtended(a, m)
     val g = gcd.first
     val x = gcd.second
-    if (g != 1.toLong()) return -1
+    if (g != 1L) return -1
     else return (x % m + m) % m
 }

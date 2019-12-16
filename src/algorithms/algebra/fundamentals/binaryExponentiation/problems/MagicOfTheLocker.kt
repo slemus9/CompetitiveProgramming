@@ -7,8 +7,8 @@ import java.io.InputStreamReader
  * https://www.spoj.com/problems/LOCKER/
  */
 private val m: Long = 1000000007
-val zero = 0.toLong()
-val one = 1.toLong()
+val zero = 0L
+val one = 1L
 
 private fun binExpMod(a: Long, n: Long): Long{
     tailrec fun go(a: Long, n: Long, a1: Long): Long{
@@ -26,7 +26,7 @@ fun main(args: Array<String>) {
     val t = br.readLine().toInt()
 
     for (i in 1 .. t){
-        val n = br.readLine().toLong()
+        val n = br.readLine()L
         if (n < 4){
             println(n)
         }else{

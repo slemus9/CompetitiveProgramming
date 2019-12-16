@@ -6,7 +6,7 @@ import java.io.InputStreamReader
 /**
  * http://codeforces.com/gym/100963/attachments
  */
-val zero = 0.toLong()
+val zero = 0L
 
 private fun xgcd(a: Long, b: Long): Triple<Long, Long, Long>{
     tailrec fun go(a: Long, b: Long, x: Long, y: Long, prevx: Long, prevy: Long): Triple<Long, Long, Long> =
@@ -20,7 +20,7 @@ private fun xgcd(a: Long, b: Long): Triple<Long, Long, Long>{
 
 fun main(args: Array<String>) {
     val br = BufferedReader(InputStreamReader(System.`in`))
-    var nmak = br.readLine().split(" ").map { it.toLong() }
+    var nmak = br.readLine().split(" ").map { itL }
 
     while (nmak[0] != zero || nmak[1] != zero || nmak[2] != zero || nmak[3] != zero  ){
         val n = nmak[0]
@@ -39,7 +39,7 @@ fun main(args: Array<String>) {
             println(n + x*(c/g)*m)
         }
 
-        nmak = br.readLine().split(" ").map { it.toLong() }
+        nmak = br.readLine().split(" ").map { itL }
     }
 
 }

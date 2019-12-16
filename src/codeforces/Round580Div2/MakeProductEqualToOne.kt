@@ -5,9 +5,9 @@ import java.io.InputStreamReader
 import kotlin.math.abs
 
 fun countOps(coins: List<Long>): Long{
-    var count = 0.toLong()
+    var count = 0L
     for (c in coins){
-        if (c == 0.toLong()) count++
+        if (c == 0L) count++
         else count += abs(c) - 1
     }
     return count
@@ -16,13 +16,13 @@ fun countOps(coins: List<Long>): Long{
 fun main(args: Array<String>) {
     val br = BufferedReader(InputStreamReader(System.`in`))
     val n = br.readLine().toInt()
-    val coins = br.readLine().split(" ").map { it.toLong() }
+    val coins = br.readLine().split(" ").map { itL }
     var count = countOps(coins)
-    var countNeg = 0.toLong()
-    var countZeroes = 0.toLong()
+    var countNeg = 0L
+    var countZeroes = 0L
 
     for (c in coins){
-        if (c == 0.toLong()) countZeroes++
+        if (c == 0L) countZeroes++
         else if (c < 0) countNeg ++
     }
 
@@ -30,6 +30,6 @@ fun main(args: Array<String>) {
 
 
     println(
-            if (countNeg % 2 != 0.toLong() && countZeroes == 0.toLong()) count + 2 else count
+            if (countNeg % 2 != 0L && countZeroes == 0L) count + 2 else count
     )
 }

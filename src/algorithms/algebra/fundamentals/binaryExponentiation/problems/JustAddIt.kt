@@ -9,13 +9,13 @@ import java.io.InputStreamReader
 private val m: Int = 10000007
 
 private fun binExpMod(a: Long, n: Long): Long{
-    if (n == 0.toLong()) return 1
+    if (n == 0L) return 1
 
     var x = a
-    var y = 1.toLong()
+    var y = 1L
     var count = n
     while (count > 0){
-        if (count % 2 != 0.toLong()) y = (x * y) % m
+        if (count % 2 != 0L) y = (x * y) % m
         count = count shr 1
         x = (x * x) % m
     }
@@ -27,13 +27,13 @@ private fun binExpMod(a: Long, n: Long): Long{
  */
 fun main(args: Array<String>) {
     val br = BufferedReader(InputStreamReader(System.`in`))
-    var nk = br.readLine().split(" ").map { it.toLong() }
+    var nk = br.readLine().split(" ").map { itL }
 
-    while (nk[0] != 0.toLong() || nk[1] != 0.toLong()){
+    while (nk[0] != 0L || nk[1] != 0L){
         val n = nk[0]
         val k = nk[1]
         val result = (2*(binExpMod(n-1,k) + binExpMod(n-1,n-1)) + binExpMod(n,k) + binExpMod(n,n)) % m
         println(result)
-        nk = br.readLine().split(" ").map { it.toLong() }
+        nk = br.readLine().split(" ").map { itL }
     }
 }

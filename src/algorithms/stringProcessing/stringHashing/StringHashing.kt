@@ -10,8 +10,8 @@ import algorithms.algebra.modularArithmetic.modularInverse.modInverse
  * Recommended: p = 31, m = 10^9 + 9
  */
 fun computeHash(s: String, p: Int, m: Int): Long{
-    var hashVal = 0.toLong()
-    var p_pow = 1.toLong()
+    var hashVal = 0L
+    var p_pow = 1L
     for (c in s){
         hashVal = (hashVal + (c - 'a' + 1)*p_pow) % m
         p_pow = (p * p_pow) % m
@@ -97,8 +97,8 @@ fun fastSubstringHash(s: String, i: Int, j: Int): Long{
     val p = 31
     val m = 1000000000 + 9
     val hs = precHash(s, p, m)
-    val pow = binExpRec(p.toLong(), i.toLong())
-    val inv = modInverse(pow, m.toLong())
+    val pow = binExpRec(pL, iL)
+    val inv = modInverse(pow, mL)
 
-    return inv*mod(hs[j] - hs[if (i == 0) 0 else i - 1], m.toLong())
+    return inv*mod(hs[j] - hs[if (i == 0) 0 else i - 1], mL)
 }
