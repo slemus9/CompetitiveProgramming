@@ -27,13 +27,13 @@ private fun binExpMod(a: Long, n: Long): Long{
  */
 fun main(args: Array<String>) {
     val br = BufferedReader(InputStreamReader(System.`in`))
-    var nk = br.readLine().split(" ").map { itL }
+    var nk = br.readLine().split(" ").map { it.toLong() }
 
     while (nk[0] != 0L || nk[1] != 0L){
         val n = nk[0]
         val k = nk[1]
         val result = (2*(binExpMod(n-1,k) + binExpMod(n-1,n-1)) + binExpMod(n,k) + binExpMod(n,n)) % m
         println(result)
-        nk = br.readLine().split(" ").map { itL }
+        nk = br.readLine().split(" ").map { it.toLong() }
     }
 }

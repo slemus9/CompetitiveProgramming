@@ -97,8 +97,8 @@ fun fastSubstringHash(s: String, i: Int, j: Int): Long{
     val p = 31
     val m = 1000000000 + 9
     val hs = precHash(s, p, m)
-    val pow = binExpRec(pL, iL)
-    val inv = modInverse(pow, mL)
+    val pow = binExpRec(p.toLong(), i.toLong())
+    val inv = modInverse(pow, m.toLong())
 
-    return inv*mod(hs[j] - hs[if (i == 0) 0 else i - 1], mL)
+    return inv*mod(hs[j] - hs[if (i == 0) 0 else i - 1], m.toLong())
 }

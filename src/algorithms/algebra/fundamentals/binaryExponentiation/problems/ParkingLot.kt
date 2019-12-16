@@ -20,7 +20,7 @@ fun binExp(a: Long, n: Long): Long{
 fun main(args: Array<String>) {
     val br = BufferedReader(InputStreamReader(System.`in`))
     val n = br.readLine().toInt()
-    val x1 = 4*3* binExp(4, (n - 3)L)*2
-    val x2 = if (n > 3) 4*3*3* binExp(4, (n - 4)L)*(n - 3) else 0
+    val x1 = 4*3* binExp(4, (n - 3).toLong())*2
+    val x2 = if (n > 3) 4*3*3* binExp(4, (n - 4).toLong())*(n - 3) else 0
     println(x1 + x2)
 }

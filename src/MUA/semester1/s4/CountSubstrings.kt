@@ -11,7 +11,7 @@ fun main(args: Array<String>) {
 
     for (i in 0 until t){
         val n = br.readLine().toInt()
-        var number = br.readLine()L
+        var number = br.readLine().toLong()
         var numberOfOnes = 0
 
         for (j in 0 until n){

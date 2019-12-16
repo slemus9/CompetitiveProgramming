@@ -26,7 +26,7 @@ fun main(args: Array<String>) {
     val t = br.readLine().toInt()
 
     for (i in 1 .. t){
-        val n = br.readLine()L
+        val n = br.readLine().toLong()
         if (n < 4){
             println(n)
         }else{

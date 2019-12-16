@@ -20,7 +20,7 @@ private fun xgcd(a: Long, b: Long): Triple<Long, Long, Long>{
 
 fun main(args: Array<String>) {
     val br = BufferedReader(InputStreamReader(System.`in`))
-    var nmak = br.readLine().split(" ").map { itL }
+    var nmak = br.readLine().split(" ").map { it.toLong() }
 
     while (nmak[0] != zero || nmak[1] != zero || nmak[2] != zero || nmak[3] != zero  ){
         val n = nmak[0]
@@ -39,7 +39,7 @@ fun main(args: Array<String>) {
             println(n + x*(c/g)*m)
         }
 
-        nmak = br.readLine().split(" ").map { itL }
+        nmak = br.readLine().split(" ").map { it.toLong() }
     }
 
 }

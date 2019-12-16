@@ -1,4 +1,4 @@
-package codeforces.Round580Div2
+package codeforces.round580Div2
 
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -16,7 +16,7 @@ fun countOps(coins: List<Long>): Long{
 fun main(args: Array<String>) {
     val br = BufferedReader(InputStreamReader(System.`in`))
     val n = br.readLine().toInt()
-    val coins = br.readLine().split(" ").map { itL }
+    val coins = br.readLine().split(" ").map { it.toLong() }
     var count = countOps(coins)
     var countNeg = 0L
     var countZeroes = 0L

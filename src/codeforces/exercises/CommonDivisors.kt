@@ -13,7 +13,7 @@ tailrec fun gcd(a: Long, b: Long): Long =
 fun main(args: Array<String>) {
     val br = BufferedReader(InputStreamReader(System.`in`))
     val n = br.readLine().toInt()
-    val nums = br.readLine().split(" ").map { itL }
+    val nums = br.readLine().split(" ").map { it.toLong() }
     val g = nums.fold(0L) { x, y -> gcd(x, y) }
     var i = 1L
     var count = 0

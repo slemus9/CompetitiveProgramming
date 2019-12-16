@@ -44,7 +44,7 @@ fun precHash(s: String, p: Int, m: Int): Array<Long>{
 fun mod(x: Long, m: Long) = (x % m + m) % m
 
 fun fastSubstringHash(s: String, i: Int, j: Int, hs: Array<Long>): Long =
-        mod(hs[j] - hs[if (i == 0) 0 else i - 1], mL)
+        mod(hs[j] - hs[if (i == 0) 0 else i - 1], m.toLong())
 
 
 fun binExp(a: Long, n: Long): Long {
@@ -75,8 +75,8 @@ fun calculateAllSubstringHashes(n: Int, s: String, h: Long, hs: Array<Long>){
             currSub += s[j]
         }else{
             val currH = fastSubstringHash(currSub, i, j, hs)
-            val exp = h* binExp(pL, iL)
-            if (h* binExp(pL, iL) == currH) println(i)
+            val exp = h* binExp(p.toLong(), i.toLong())
+            if (h* binExp(p.toLong(), i.toLong()) == currH) println(i)
             if (j == s.length - 1) reachedEnd = true
             i ++
             j = i

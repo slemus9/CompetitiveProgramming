@@ -7,7 +7,7 @@ fun main(args: Array<String>) {
     val t = readLine()?.toInt()
     val zero = 0L
     for (i in 1 .. t!!){
-        val ab = readLine()?.split(" ")!!.map { itL }
+        val ab = readLine()?.split(" ")!!.map { it.toLong() }
         var a = ab[0]
         var b = ab[1]
         var y: Long = 1
