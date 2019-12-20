@@ -3,6 +3,9 @@ package algorithms.algebra.modularArithmetic.modularInverse.problems
 import java.io.BufferedReader
 import java.io.InputStreamReader
 
+/**
+ * https://codeforces.com/contest/300/problem/C
+ */
 val m = (1e9 + 7).toLong()
 val maxN = (1e6 + 300).toInt()
 val fact by lazy { precFact() }
