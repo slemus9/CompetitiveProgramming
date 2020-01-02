@@ -1,4 +1,4 @@
-package codeforces.round609Div2
+package codeforces.div2.round609Div2
 
 import java.io.BufferedReader
 import java.io.InputStreamReader

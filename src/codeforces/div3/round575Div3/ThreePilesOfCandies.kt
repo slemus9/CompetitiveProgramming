@@ -1,4 +1,4 @@
-package codeforces.round575Div3
+package codeforces.div3.round575Div3
 
 import java.io.BufferedReader
 import java.io.InputStreamReader

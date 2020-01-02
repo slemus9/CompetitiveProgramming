@@ -1,4 +1,4 @@
-package codeforces.educationalRound79Div2
+package codeforces.div2.educationalRound79Div2
 
 import java.io.BufferedReader
 import java.io.InputStreamReader

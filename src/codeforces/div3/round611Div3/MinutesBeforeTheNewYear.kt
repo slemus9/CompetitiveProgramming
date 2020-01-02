@@ -1,4 +1,4 @@
-package codeforces.educationalRound79Div2
+package codeforces.div3.round611Div3
 
 import java.io.BufferedReader
 import java.io.InputStreamReader
@@ -8,7 +8,7 @@ fun main() {
     val t = br.readLine().toInt()
 
     for (i in 0 until t){
-        val colors = br.readLine().split(" ").map { it.toInt() }.sorted()
-        println(if (colors[2] - (colors[1] + colors[0]) > 1) "No" else "Yes")
+        val (h, m) = br.readLine().split(" ").map { it.toInt() }
+        println((60 - m) + (23 - h)* 60)
     }
 }

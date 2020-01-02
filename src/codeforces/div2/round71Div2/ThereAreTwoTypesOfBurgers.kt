@@ -1,4 +1,4 @@
-package codeforces.round71Div2
+package codeforces.div2.round71Div2
 
 import java.io.BufferedReader
 import java.io.InputStreamReader
