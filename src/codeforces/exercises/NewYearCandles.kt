@@ -5,12 +5,13 @@ import java.io.InputStreamReader
 
 fun main() {
     val br = BufferedReader(InputStreamReader(System.`in`))
-    val (a, b) = br.readLine().split(" ").map { it.toDouble() }
+    val (a, b) = br.readLine().split(" ").map { it.toInt()}
     var i = a
     var candles = a
-    while (i > 1){
-        i /= b
-        candles += i
+    while (i >= b){
+        candles += i/b
+        i = i/b + i % b
     }
-    println(candles.toInt())
+
+    println(candles)
 }
