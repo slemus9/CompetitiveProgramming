@@ -20,3 +20,9 @@ fun modInverse(a: Long, m: Long): Long {
     if (g != 1L) return -1
     else return (x % m + m) % m
 }
+
+fun main() {
+    println(modInverse(3, 11))
+    println(modInverse(10, 17))
+    println(modInverse(31, (1e9 + 9).toLong()))
+}

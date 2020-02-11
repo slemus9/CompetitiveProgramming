@@ -72,14 +72,19 @@ fun gcdExtended1(a: Long, b: Long): Triple<Long, Long, Long>{
     return Triple(go(a, b), x, y)
 }
 
-
+fun printResult (g: Triple<Long, Long, Long>){
+    println("gcd(a, b) = ${g.first}, x = ${g.second}, y = ${g.third}")
+}
 
 fun main(args: Array<String>) {
     val g = gcdExtended(1398, 324)
     val g1 = gcdExtended1(1398, 324)
     val g2 = gcdExtended(4, 6)
-    println("gcd(a, b) = ${g.first}, x = ${g.second}, y = ${g.third}")
-    println("gcd(a, b) = ${g1.first}, x = ${g1.second}, y = ${g1.third}")
-    println("gcd(a, b) = ${g2.first}, x = ${g2.second}, y = ${g2.third}")
+    println((1e9 + 9).toLong())
+    val g3 = gcdExtended1(31, 1000000009)
+    printResult(g)
+    printResult(g1)
+    printResult(g2)
+    printResult(g3)
 
 }
