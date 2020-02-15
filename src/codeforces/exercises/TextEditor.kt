@@ -17,6 +17,24 @@ object TextEditor {
         val A = br.readLine()
         val B = br.readLine()
         val n = br.readLine().toInt()
+        val indices = searchIndices(A, B)
+
+        if (indices.size < n){
+            println("IMPOSSIBLE")
+        } else{
+
+        }
+    }
+
+    fun searchIndices (A: String, B: String): MutableList<Int>{
+        val indices = mutableListOf<Int>()
+        val c = B.first()
+        for (i in 0 until A.length){
+            if (A[i] == c){
+                indices.add(i)
+            }
+        }
+        return indices
     }
 
     fun computePrefixHash (s: String): Array<Long>{
