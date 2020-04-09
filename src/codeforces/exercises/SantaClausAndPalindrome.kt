@@ -12,8 +12,8 @@ object SantaClausAndPalindrome {
     val p = 31L
     val m = (1e9 + 9).toLong()
     var pows = mutableListOf<Long>()
-    var prefixes = mutableListOf<Long>()
-    var suffixes = mutableListOf<Long>()
+    var prefixes = mutableListOf<Pair<Long, Int>>()
+    var hashReverse = HashMap<Long, Long>()
     val a = mutableListOf<Int>()
 
     fun main() {
@@ -23,61 +23,19 @@ object SantaClausAndPalindrome {
         for (i in 0 until k){
             val (s_i, a_i) = br.readLine().split(" ")
             a.add(a_i.toInt())
-            prefixes.add(computeHash(s_i))
-            suffixes.add(computeHash(s_i.reversed()))
+            val prefixHash = computeHash(s_i)
+
+            prefixes.add(prefixHash to i)
+            hashReverse[prefixHash] = computeHash(s_i.reversed())
         }
 
+        val prefixGroup = prefixes.groupBy { it.first }
+        val palindromes = prefixes.filter { (x, _) ->  hashReverse[x] == x}
 
-        println(prefixes)
-        println(suffixes)
+        println(prefixGroup)
+        println(hashReverse)
+        println(palindromes)
         println(a)
-
-        val used = HashMap<Long, Int>()
-        var beauty = 0
-        for (i in 0 until k){
-            val prefix_i = prefixes[i]
-            for (j in 0 until k){
-                val suffix_j = suffixes[j]
-                val sum = a[i] + a[j]
-                if (i != j && prefix_i == suffix_j && sum > 0){
-                    if (prefix_i in used && used[prefix_i]!! > sum){
-                        beauty -= used[prefix_i]!!
-                        beauty += sum
-                        used[prefix_i] = sum
-                    } else{
-                        used[prefix_i] = sum
-                        beauty += sum
-                    }
-                }
-            }
-        }
-
-        println(beauty)
-
-        val unusedPre = prefixes.filterIndexed {i, _ -> !(prefixes[i] in used)}
-        val unusedSu = suffixes.filterIndexed {i, _ -> !(prefixes[i] in used)}
-
-        for (i in unusedPre.indices){
-            if (unusedPre[i] == unusedSu[i] && a[i] > 0){
-                beauty += a[i]
-            }
-        }
-
-        println(beauty)
-    }
-
-    fun isPalindrome (s: String): Boolean{
-        var isPalindrome = true
-        var i = 0
-        var j = s.length - 1
-        while (i < j && isPalindrome){
-            if (s[i] != s[j]) isPalindrome = false
-            else{
-                i++
-                j--
-            }
-        }
-        return isPalindrome
     }
 
     fun computeHash (s: String): Long{
