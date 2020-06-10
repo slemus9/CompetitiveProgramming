@@ -6,18 +6,13 @@ package algorithms.algebra.fundamentals
  *     = (a^2)^((n - 1)/2) if n is odd
  *
  */
-fun binExpRec(a: Long, n: Long): Long {
-    tailrec fun go(a: Long, n: Long, acc: Long): Long{
-        if (a == 0L) return 0
-        if (n == 0L) return 1
-        if (n == 1L){
-            return a * acc
-        }
-        if (n % 2 == 0L)
-            return go(a * a, n/2, acc)
-        else
-            return go(a * a, (n - 1)/2, a * acc)
-    }
+fun binExpRec (a: Long, n: Long): Long {
+    tailrec fun go(a: Long, n: Long, acc: Long): Long =
+        if (a == 0L)  0
+        else if (n == 0L)  1
+        else if (n == 1L) a * acc
+        else if (n % 2 == 0L) go(a * a, n/2, acc)
+        else go(a * a, (n - 1)/2, a * acc)
     return go(a, n, 1)
 }
 
