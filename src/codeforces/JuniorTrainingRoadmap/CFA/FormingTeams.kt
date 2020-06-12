@@ -11,7 +11,7 @@ object FormingTeams {
     class QuickUnion (val n: Int) {
         private val parent = (0 until n).toMutableList()
         private val size = MutableList(n){1}
-        private var components = n
+        var components = n
 
         tailrec fun find (p: Int): Int = when(p){
             parent[p] -> p
