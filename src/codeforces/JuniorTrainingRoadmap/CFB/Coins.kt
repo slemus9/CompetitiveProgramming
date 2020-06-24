@@ -19,8 +19,8 @@ object Coins {
             val freqs = greatest.groupBy { it }.map { (letter, xs) -> letter to xs.size }
             val ans = listOf(
                 (setOf("A", "B", "C") - greatest.toSet()).first(),
-                freqs.filter { it.second == 1 }.first().first,
-                freqs.filter { it.second == 2 }.first().first
+                freqs.first { it.second == 1 }.first,
+                freqs.first { it.second == 2 }.first
             )
             println(ans.joinToString(""))
         }
